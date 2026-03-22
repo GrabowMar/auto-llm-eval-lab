@@ -1,0 +1,28 @@
+import { sveltekit } from '@sveltejs/kit/vite';
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+	plugins: [sveltekit()],
+	server: {
+		host: '0.0.0.0',
+		port: 5173,
+		proxy: {
+			'/api': {
+				target: 'http://django:8000',
+				changeOrigin: true
+			},
+			'/admin': {
+				target: 'http://django:8000',
+				changeOrigin: true
+			},
+			'/static': {
+				target: 'http://django:8000',
+				changeOrigin: true
+			},
+			'/media': {
+				target: 'http://django:8000',
+				changeOrigin: true
+			}
+		}
+	}
+});

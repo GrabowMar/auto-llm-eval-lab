@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=open_llm_eval_lab
+POSTGRES_USER=IsyhbITMmInpHbDelTURntqFAlHeRHVu
+POSTGRES_PASSWORD=nVL00aHLD5fZarPX7WrGoWNpSaHB0GdCLFrE8Ab4e8v98XXQO6aVOcwh9Rn3kxPI
