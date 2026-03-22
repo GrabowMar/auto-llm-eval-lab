@@ -10,7 +10,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=_source
 set BUILDDIR=_build
-set APP=..\open_llm_eval_lab
+set APP=..\backend
 
 if "%1" == "" goto help
 

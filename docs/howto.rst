@@ -4,7 +4,7 @@ How To - Project Documentation
 Get Started
 ----------------------------------------------------------------------
 
-Documentation can be written as rst files in `open_llm_eval_lab/docs`.
+Documentation can be written as rst files in `backend/docs`.
 
 
 To build and serve docs, use the commands::

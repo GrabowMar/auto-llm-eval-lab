@@ -11,7 +11,7 @@ services:
       - /app/.venv
       - ./docs:/docs:z
       - ./config:/app/config:z
-      - ./open_llm_eval_lab:/app/open_llm_eval_lab:z
+      - ./backend:/app/backend:z
     ports:
       - '9000:9000'
     command: /start-docs

@@ -7,8 +7,8 @@ from pathlib import Path
 import environ
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
-# open_llm_eval_lab/
-APPS_DIR = BASE_DIR / "open_llm_eval_lab"
+# backend/
+APPS_DIR = BASE_DIR / "backend"
 env = environ.Env()
 
 READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
@@ -69,11 +69,8 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
     # "django.contrib.humanize", # Handy template tags
     "django.contrib.admin",
-    "django.forms",
 ]
 THIRD_PARTY_APPS = [
-    "crispy_forms",
-    "crispy_bootstrap5",
     "allauth",
     "allauth.account",
     "allauth.mfa",
@@ -86,7 +83,7 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    "open_llm_eval_lab.users",
+    "backend.users",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -95,7 +92,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # MIGRATIONS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
-MIGRATION_MODULES = {"sites": "open_llm_eval_lab.contrib.sites.migrations"}
+MIGRATION_MODULES = {"sites": "backend.contrib.sites.migrations"}
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
@@ -107,7 +104,7 @@ AUTHENTICATION_BACKENDS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
 AUTH_USER_MODEL = "users.User"
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-redirect-url
-LOGIN_REDIRECT_URL = "users:redirect"
+LOGIN_REDIRECT_URL = "/"
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-url
 LOGIN_URL = "account_login"
 
@@ -177,7 +174,7 @@ TEMPLATES = [
         # https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-TEMPLATES-BACKEND
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         # https://docs.djangoproject.com/en/dev/ref/settings/#dirs
-        "DIRS": [str(APPS_DIR / "templates")],
+        "DIRS": [],
         # https://docs.djangoproject.com/en/dev/ref/settings/#app-dirs
         "APP_DIRS": True,
         "OPTIONS": {
@@ -191,22 +188,11 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
-                "open_llm_eval_lab.users.context_processors.allauth_settings",
             ],
         },
     },
 ]
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#form-renderer
-FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
-
-# http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
-CRISPY_TEMPLATE_PACK = "bootstrap5"
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-
-# FIXTURES
-# ------------------------------------------------------------------------------
-# https://docs.djangoproject.com/en/dev/ref/settings/#fixture-dirs
 FIXTURE_DIRS = (str(APPS_DIR / "fixtures"),)
 
 # SECURITY
@@ -318,13 +304,13 @@ ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 # https://docs.allauth.org/en/latest/account/configuration.html
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 # https://docs.allauth.org/en/latest/account/configuration.html
-ACCOUNT_ADAPTER = "open_llm_eval_lab.users.adapters.AccountAdapter"
+ACCOUNT_ADAPTER = "backend.users.adapters.AccountAdapter"
 # https://docs.allauth.org/en/latest/account/forms.html
-ACCOUNT_FORMS = {"signup": "open_llm_eval_lab.users.forms.UserSignupForm"}
+ACCOUNT_FORMS = {"signup": "backend.users.forms.UserSignupForm"}
 # https://docs.allauth.org/en/latest/socialaccount/configuration.html
-SOCIALACCOUNT_ADAPTER = "open_llm_eval_lab.users.adapters.SocialAccountAdapter"
+SOCIALACCOUNT_ADAPTER = "backend.users.adapters.SocialAccountAdapter"
 # https://docs.allauth.org/en/latest/socialaccount/configuration.html
-SOCIALACCOUNT_FORMS = {"signup": "open_llm_eval_lab.users.forms.UserSocialSignupForm"}
+SOCIALACCOUNT_FORMS = {"signup": "backend.users.forms.UserSocialSignupForm"}
 
 # django-rest-framework
 # -------------------------------------------------------------------------------

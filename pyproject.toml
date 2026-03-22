@@ -145,7 +145,7 @@ python_files = [
 # ==== Coverage ====
 
 [tool.coverage.run]
-include = [ "open_llm_eval_lab/**" ]
+include = [ "backend/**" ]
 omit = [ "*/migrations/*", "*/tests/*" ]
 plugins = [ "django_coverage_plugin" ]
 

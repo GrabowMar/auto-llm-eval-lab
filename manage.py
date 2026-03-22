@@ -20,9 +20,9 @@ def main():
         ) from exc
 
     # This allows easy placement of apps within the interior
-    # open_llm_eval_lab directory.
+    # backend directory.
     current_path = Path(__file__).parent.resolve()
-    sys.path.append(str(current_path / "open_llm_eval_lab"))
+    sys.path.append(str(current_path / "backend"))
 
     execute_from_command_line(sys.argv)
 
